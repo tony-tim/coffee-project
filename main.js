@@ -19,8 +19,10 @@ function renderCoffees(coffees) {
     for(var i = coffees.length - 1; i >= 0; i--) {
         html += renderCoffee(coffees[i]);
     }
+
     return html;
 }
+
 
 /*--Creates an array of the search items---------------------------------------------------------------------------------------- */
 
