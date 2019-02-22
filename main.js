@@ -32,29 +32,13 @@ function updateCoffees(e) {
         if (coffee.roast === selectedRoast) {
             filteredCoffees.push(coffee);
         } else if (selectedRoast === "display all") {
-           for (var i = 0; i < (coffees.length); i++) {
-               filteredCoffees.push(coffees[i])
-           }
+            filteredCoffees = coffees
         }
 
     });
 
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
-
-//Search bar stuff
-
-var userSearch = document.getElementById('search');
-
-console.log(userSearch.value);
-
-document.querySelector('form.search-form').addEventListener('submit', function (e) {
-
-    //prevent the normal submission of the form
-    e.preventDefault();
-
-    console.log(userSearch.value);
-});
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -86,5 +70,3 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
-
-
