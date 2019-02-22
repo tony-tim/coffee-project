@@ -70,3 +70,9 @@ var roastSelection = document.querySelector('#roast-selection');
 tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+input.oninput = function() {
+    result.innerHTML = input.value;
+    console.log(result.innerHTML);
+};
+
