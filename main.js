@@ -37,8 +37,23 @@ function updateCoffees(e) {
 
     });
 
+
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
+
+/*---search box --------------------------------------------------------------------------------------- */
+
+input.oninput = function() {
+    result.innerHTML = input.value;
+    var hello = result.innerHTML;
+    console.log(hello);
+};
+
+/*---search box --------------------------------------------------------------------------------------- */
+
+
+
+
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
@@ -71,8 +86,7 @@ tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
-input.oninput = function() {
-    result.innerHTML = input.value;
-    console.log(result.innerHTML);
-};
+/*----input box-------------------------------------------------------------------------------------- */
+
+
 
