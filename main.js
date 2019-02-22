@@ -40,6 +40,44 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
+/*------User added coffee--------*/
+
+function userCoffee(e) {
+    e.preventDefault();
+    var roast = document.querySelector("#userRoastSelection").value;
+    var newCoffee = document.querySelector("#userCoffee").value;
+    var id = coffees.length+1;
+
+    var newUserCoffee = {
+        id: id,
+        roast: roast,
+        name: newCoffee
+
+    };
+
+    coffees.push(newUserCoffee);
+    updateCoffees(e);
+    updateStoredCoffee(coffees);
+
+}
+
+function updateStoredCoffee(coffees) {
+    var string = JSON.stringify(coffees);
+    localStorage.setItem('coffees', string);
+}
+
+// function removeUserCoffee(e) {
+//     localStorage.removeItem("coffees");
+//     updateCoffees(e);
+//     location.reload();
+// }
+
+
+
+var addUserCoffee = document.querySelector('#coffee-button');
+
+addUserCoffee.addEventListener('click', userCoffee);
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -69,4 +107,26 @@ var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees);
 
-submitButton.addEventListener('click', updateCoffees);
+
+
+/*--Search Bar Things ---------------------------------------------------------------------------------------- */
+
+// function searchFunction() {
+//     // Declare variables
+//     var input, filter, i, txtValue;
+//     input = document.getElementById('userInput');
+//     filter = input.value.toUpperCase();
+//     // ul = document.getElementById("myUL");
+//     // li = ul.getElementsByTagName('li');
+//
+//     // Loop through all list items, and hide those who don't match the search query
+//     for (i = 0; i < coffees.length; i++) {
+//         var a = coffees[i].getElementsByTagName("[]");
+//         txtValue = a.textContent || a.innerText;
+//         if (txtValue.toUpperCase().indexOf(filter) > -1) {
+//             li[i].style.display = "";
+//         } else {
+//             li[i].style.display = "none";
+//         }
+//     }
+// }
